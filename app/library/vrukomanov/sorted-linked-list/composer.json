@@ -1,0 +1,34 @@
+{
+  "name": "vrukomanov/sorted-linked-list",
+  "type": "library",
+  "version": "1.0.0",
+  "description": "Implementation of the SortedLinkedList",
+  "keywords": [
+    "SortedLinkedList",
+    "library"
+  ],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vitalii Rukomanov",
+      "email": "v.rukomanov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Homework\\SortedLinkedList\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Homework\\SortedLinkedList\\Tests\\": "tests/"
+    }
+  }
+}
