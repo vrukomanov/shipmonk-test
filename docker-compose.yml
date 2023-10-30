@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  php:
+    container_name: "shipmonk_php"
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      target: php_dev
+      args:
+        - APP_CODE_PATH=${APP_CODE_PATH_CONTAINER:-/var/www/app}
+        - PHP_IDE_CONFIG=serverName=${SERVER_NAME:-localhost}
+    volumes:
+      - php_socket:/var/run/php
+      - ./app:${APP_CODE_PATH_CONTAINER:-/var/www/app}
+    environment:
+      - PHP_IDE_CONFIG=serverName=${SERVER_NAME:-localhost}
+    extra_hosts:
+      # Ensure that host.docker.internal is correctly defined on Linux
+      - host.docker.internal:host-gateway
+    networks:
+      - shipmonk
+
+volumes:
+  php_socket:
+
+networks:
+  shipmonk:
+    driver: bridge
